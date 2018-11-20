@@ -64,26 +64,22 @@ $teamNum = $json['TEAMNUM'];
 $matchNum = $json['MATCHNUM'];
 $teamScore = $json['TEAMSCORE'];
 $defenseRating = $json['DEFENSERATING'];
-$autoHighScores = $json['AUTOHIGHSCORES'];
-$autoLowScores = $json['AUTOLOWSCORES'];
+$autoCratesFilled = $json['AUTOCRATESFILLED'];
 $doesAuto = $json['DOESAUTO'];
-$defenseCrossed = $json['DEFENSECROSSED'];
-$linesUp = $json['LINESUP'];
+$centerCrossed = $json['CENTERCROSSED'];
 $autoBroke = $json['AUTOBROKE'];
 
-$teleOSwitchScores = $json['TELEOSWITCHSCORES'];
-$teleScaleScores = $json['TELESCALESCORES'];
-$teleESwitchScores = $json['TELEESWITCHSCORES'];
+$teleCratesFilled = $json['TELECRATESFILLED']
+$teleBunniesPlaced = $json['TELEBUNNIESPLACED']
 $malfunction = $json['MALFUNCTION'];
-$doesClimb = $json['DOESCLIMB'];
 $doesDefend = $json['DOESDEFEND'];
 $teleNotes = $json['TELENOTES'];
 
 $specialNotes = $json['SPECIALNOTES'];
 
 
-$query = "INSERT INTO match_data (Scout_Name, Team_Number, Match_Number, Team_Score, Defense_Rating, Does_Auto, Auto_High_Scores, Auto_Low_Scores, Defense_Crossed, Lines_Up, Auto_Broke, Tele_OSwitch_Scores, Tele_Scale_Scores, Tele_ESwitch_Scores, Malfunction, Does_Climb, Does_Defend, Tele_Notes, Special_Notes)
-        VALUES ('$scoutName', '$teamNum', '$matchNum', '$teamScore', '$defenseRating', '$doesAuto', $autoHighScores, $autoLowScores,'$defenseCrossed', '$linesUp', '$autoBroke', '$teleOSwitchScores', '$teleScaleScores', '$teleESwitchScores', '$malfunction', '$doesClimb', '$doesDefend', '$teleNotes', '$specialNotes')";
+$query = "INSERT INTO match_data (  Scout_Name, Team_Number, Match_Number,   Team_Score,   Defense_Rating,   Does_Auto, Auto_Crates_Filled,   Center_Crossed,   Auto_Broke,  Tele_Crates_Filled,  Tele_Bunnies_Placed,    Malfunction,   Does_Defend,   Tele_Notes,   Special_Notes)
+                          VALUES ('$scoutName', '$teamNum' , '$matchNum' , '$teamScore', '$defenseRating', '$doesAuto','$autoCratesFilled', '$centerCrossed', '$autoBroke', '$teleCratesFilled', '$teleBunniesPlaced', '$malfunction', '$doesDefend', '$teleNotes', '$specialNotes')";
 
 		
 		
