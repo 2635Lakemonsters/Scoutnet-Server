@@ -101,25 +101,23 @@ $driveTrain = $json['DRIVETRAIN'];
 $doesAuto = $json['AUTO'];
 $autoFor = $json['AUTOUSAGE'];
 
-$canGrab = $json['R1'];
-$canLaunch = $json['R2'];
-$canBulldoze = $json['R3'];
-$canHelpClimb = $json['R4'];
+$canCollect = $json['CANCOLLECT'];
+$canFill = $json['CANFILL'];
+$canBunny = $json['CANBUNNY'];
+$canSort = $json['CANSORT'];
 
-$doesSwitch = $json['S1'];
-$doesScale = $json['S2'];
-$doesLiftCubes = $json['S3'];
-$doesShootCubes = $json['S4'];
-$doesVault = $json['S5'];
-$doesClimb = $json['S6'];
-$defensive = $json['S7'];
-$offensive = $json['S8'];
+$doesMove = $json['DOESMOVE'];
+$doesBunny = $json['DOESBUNNY'];
+$doesAutoFill = $json['DOESAUTOFILL'];
+$doesRemove = $json['DOESREMOVE'];
+$doesDefensive = $json['DOESDEFENSIVE'];
+$doesOffensive = $json['DOESOFFENSIVE'];
 
-$specialNotes = $json['SPECIALNOTES'];
+$generalNotes = $json['GENERALNOTES'];
 
 
-$query = "INSERT INTO pit_data (Scout_Name, Team_Number, Team_Name, Robot_Name, Number_of_Wheels, Locomotion, Vision, Vision_For, Drive_Train, Do_Auto, Auto_For, Can_Grab, Can_Launch, Can_Bulldoze, Can_Help_Climb, Does_Switch, Does_Scale, Does_Lift_Cubes, Does_Shoot_Cubes, Does_Vault, Does_Climb, Defensive, Offensive, Special_Notes) 
-		VALUES ('$scoutName', '$teamNum', '$teamName', '$robotName', '$numOfWheel', '$locomotion', '$vision', '$visionUse', '$driveTrain', '$doesAuto', '$autoFor', '$canGrab', '$canLaunch', '$canBulldoze', '$canHelpClimb', '$doesSwitch', '$doesScale', '$doesLiftCubes', '$doesShootCubes', '$doesVault', '$doesClimb', '$defensive', '$offensive', '$specialNotes')";
+$query = "INSERT INTO pit_data (  Scout_Name, Team_Number,   Team_Name,   Robot_Name, Number_of_Wheels,    Locomotion,    Vision,   Vision_For,   Drive_Train,     Do_Auto,   Auto_For,   Can_Collect,   Can_Fill,   Can_Bunny,   Can_Sort,   Does_Move,   Does_Bunny,  Does_Auto_Fill,   Does_Remove,   Does_Defensive,   Does_Offensive,   General_Notes) 
+		                VALUES ('$scoutName',  '$teamNum', '$teamName', '$robotName',    '$numOfWheel', '$locomotion', '$vision', '$visionUse', '$driveTrain', '$doesAuto', '$autoFor', '$canCollect', '$canFill', '$canBunny', '$canSort', '$doesMove', '$doesBunny', '$doesAutoFill', '$doesRemove', '$doesDefensive', '$doesOffensive', '$generalNotes')";
 
 		
 		
