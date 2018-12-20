@@ -5,7 +5,7 @@
 <?php
 $user = 'root';
 $pass = 'root';
-$db   = 'scouting_data_2018';
+$db   = 'bunnybots_data_2018';
 $host = 'localhost';
 $port = 3306;
 $link = mysqli_init();
@@ -69,8 +69,8 @@ $doesAuto = $json['DOESAUTO'];
 $centerCrossed = $json['CENTERCROSSED'];
 $autoBroke = $json['AUTOBROKE'];
 
-$teleCratesFilled = $json['TELECRATESFILLED']
-$teleBunniesPlaced = $json['TELEBUNNIESPLACED']
+$teleCratesFilled = $json['TELECRATESFILLED'];
+$teleBunniesPlaced = $json['TELEBUNNIESPLACED'];
 $malfunction = $json['MALFUNCTION'];
 $doesDefend = $json['DOESDEFEND'];
 $teleNotes = $json['TELENOTES'];
