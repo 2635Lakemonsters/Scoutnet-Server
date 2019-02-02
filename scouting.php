@@ -4,7 +4,7 @@
 <body>
 <?php
 $user = 'root';
-$pass = 'root';
+$pass = 'password';
 $db   = 'bunnybots_data_2018';
 $host = 'localhost';
 $port = 3306;
@@ -64,22 +64,27 @@ $teamNum = $json['TEAMNUM'];
 $matchNum = $json['MATCHNUM'];
 $teamScore = $json['TEAMSCORE'];
 $defenseRating = $json['DEFENSERATING'];
-$autoCratesFilled = $json['AUTOCRATESFILLED'];
+$autoCargoDelivered = $json['AUTOCARGODELIVERED'];
+$autoPanelsAttached = $json['AUTOPANELSATTACHED'];
 $doesAuto = $json['DOESAUTO'];
 $centerCrossed = $json['CENTERCROSSED'];
 $autoBroke = $json['AUTOBROKE'];
 
-$teleCratesFilled = $json['TELECRATESFILLED'];
-$teleBunniesPlaced = $json['TELEBUNNIESPLACED'];
+$teleCargoDelivered = $json['TELECARGODELIVERED'];
+$telePanelsAttached = $json['TELEPANELSATTACHED'];
 $malfunction = $json['MALFUNCTION'];
 $doesDefend = $json['DOESDEFEND'];
 $teleNotes = $json['TELENOTES'];
 
 $specialNotes = $json['SPECIALNOTES'];
+$climbLevel = $json['CLIMBLEVEL'];
+$helpsOthers = $json['HELPSOTHERS'];
 
 
-$query = "INSERT INTO match_data (  Scout_Name, Team_Number, Match_Number,   Team_Score,   Defense_Rating,   Does_Auto, Auto_Crates_Filled,   Center_Crossed,   Auto_Broke,  Tele_Crates_Filled,  Tele_Bunnies_Placed,    Malfunction,   Does_Defend,   Tele_Notes,   Special_Notes)
-                          VALUES ('$scoutName', '$teamNum' , '$matchNum' , '$teamScore', '$defenseRating', '$doesAuto','$autoCratesFilled', '$centerCrossed', '$autoBroke', '$teleCratesFilled', '$teleBunniesPlaced', '$malfunction', '$doesDefend', '$teleNotes', '$specialNotes')";
+
+
+$query = "INSERT INTO match_data (  Scout_Name, Team_Number, Match_Number,   Team_Score,   Defense_Rating,   Does_Auto, Auto_Cargo_Delivered, Auto_Panels_Attached ,  Center_Crossed,   Auto_Broke,  Tele_Cargo_Delivered,  Tele_Panels_Attached,    Malfunction,   Does_Defend,   Tele_Notes,   Special_Notes,   Climb_Level,   Helps_Others)
+                          VALUES ('$scoutName', '$teamNum' , '$matchNum' , '$teamScore', '$defenseRating', '$doesAuto','$autoCargoDelivered', '$autoPanelsAttached','$centerCrossed', '$autoBroke', '$teleCargoDelivered', '$telePanelsAttached', '$malfunction', '$doesDefend', '$teleNotes', '$specialNotes', '$climbLevel', '$helpsOthers')";
 
 		
 		
