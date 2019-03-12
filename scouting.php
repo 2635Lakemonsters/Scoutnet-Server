@@ -106,23 +106,25 @@ $driveTrain = $json['DRIVETRAIN'];
 $doesAuto = $json['AUTO'];
 $autoFor = $json['AUTOUSAGE'];
 
-$canCollect = $json['CANCOLLECT'];
-$canFill = $json['CANFILL'];
-$canBunny = $json['CANBUNNY'];
-$canSort = $json['CANSORT'];
+$canCargo = $json['CANCARGO'];
+$canHatch = $json['CANHATCH'];
+$canElevator = $json['CANELEVATOR'];
+$canClimb2 = $json['CANCLIMB2'];
+$canClimb3 = $json['CANCLIMB3'];
 
-$doesMove = $json['DOESMOVE'];
-$doesBunny = $json['DOESBUNNY'];
-$doesAutoFill = $json['DOESAUTOFILL'];
-$doesRemove = $json['DOESREMOVE'];
+
+$doesAutonomous = $json['DOESAUTONOMOUS'];
+$doesSandstorm = $json['DOESSANDSTORM'];
+$doesRocket = $json['DOESROCKET'];
+$doesShip = $json['DOESSHIP'];
 $doesDefensive = $json['DOESDEFENSIVE'];
 $doesOffensive = $json['DOESOFFENSIVE'];
 
 $generalNotes = $json['GENERALNOTES'];
 
 
-$query = "INSERT INTO pit_data (  Scout_Name, Team_Number,   Team_Name,   Robot_Name, Number_of_Wheels,    Locomotion,    Vision,   Vision_For,   Drive_Train,     Do_Auto,   Auto_For,   Can_Collect,   Can_Fill,   Can_Bunny,   Can_Sort,   Does_Move,   Does_Bunny,  Does_Auto_Fill,   Does_Remove,   Does_Defensive,   Does_Offensive,   General_Notes) 
-		                VALUES ('$scoutName',  '$teamNum', '$teamName', '$robotName',    '$numOfWheel', '$locomotion', '$vision', '$visionUse', '$driveTrain', '$doesAuto', '$autoFor', '$canCollect', '$canFill', '$canBunny', '$canSort', '$doesMove', '$doesBunny', '$doesAutoFill', '$doesRemove', '$doesDefensive', '$doesOffensive', '$generalNotes')";
+$query = "INSERT INTO pit_data (  Scout_Name, Team_Number,   Team_Name,   Robot_Name, Number_of_Wheels,    Locomotion,    Vision,   Vision_For,   Drive_Train,     Do_Auto,   Auto_For,   Can_Cargo,   Can_Hatch,   Can_Elevator,  Can_Climb_2,  Can_Climb_3,   Does_Autonomous,   Does_Sandstorm,  Does_Rocket,   Does_Ship,   Does_Defensive,   Does_Offensive,   General_Notes) 
+		                VALUES ('$scoutName',  '$teamNum', '$teamName', '$robotName',    '$numOfWheel', '$locomotion', '$vision', '$visionUse', '$driveTrain', '$doesAuto', '$autoFor', '$canCargo', '$canHatch', '$canElevator', '$canClimb2', '$canClimb3', '$doesAutonomous', '$doesSandstorm', '$doesRocket', '$doesShip', '$doesDefensive', '$doesOffensive', '$generalNotes')";
 
 		
 		
