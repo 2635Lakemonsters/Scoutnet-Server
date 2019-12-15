@@ -4,8 +4,8 @@
 <body>
 <?php
 $user = 'root';
-$pass = 'password';
-$db   = 'bunnybots_data_2018';
+$pass = 'Unicorns2635';
+$db   = 'bunnybots_data_2019';
 $host = 'localhost';
 $port = 3306;
 $link = mysqli_init();
@@ -56,35 +56,32 @@ $dataArray = $_POST["DATA"];
 $json = (array) json_decode($dataArray, true);
 $dataType = $json['DATATYPE'];
 $scoutName = $json['SCOUTNAME'];
-
+echo($dataType);
 if ($dataType == "matchData") {
 
 $teamNum = $json['TEAMNUM'];
-
 $matchNum = $json['MATCHNUM'];
 $teamScore = $json['TEAMSCORE'];
 $defenseRating = $json['DEFENSERATING'];
-$autoCargoDelivered = $json['AUTOCARGODELIVERED'];
-$autoPanelsAttached = $json['AUTOPANELSATTACHED'];
-$doesAuto = $json['DOESAUTO'];
-$centerCrossed = $json['CENTERCROSSED'];
-$autoBroke = $json['AUTOBROKE'];
 
-$teleCargoDelivered = $json['TELECARGODELIVERED'];
-$telePanelsAttached = $json['TELEPANELSATTACHED'];
+$SupportsTub = $json['SUPPORTSTUB'];
+$autoBunniesSupported = $json['AUTOBUNNIESSUPORTED'];
+$doesAuto = $json['DOESAUTO'];
+$autoTubsContacted = $json['AUTOTUBSCONTACTED'];
+
+$teleBedCubes = $json['TELEBEDCUBES'];
+$doesGive = $json['DOESGIVE'];
 $malfunction = $json['MALFUNCTION'];
-$doesDefend = $json['DOESDEFEND'];
 $teleNotes = $json['TELENOTES'];
 
 $specialNotes = $json['SPECIALNOTES'];
-$climbLevel = $json['CLIMBLEVEL'];
-$helpsOthers = $json['HELPSOTHERS'];
 
 
 
 
-$query = "INSERT INTO match_data (  Scout_Name, Team_Number, Match_Number,   Team_Score,   Defense_Rating,   Does_Auto, Auto_Cargo_Delivered, Auto_Panels_Attached ,  Center_Crossed,   Auto_Broke,  Tele_Cargo_Delivered,  Tele_Panels_Attached,    Malfunction,   Does_Defend,   Tele_Notes,   Special_Notes,   Climb_Level,   Helps_Others)
-                          VALUES ('$scoutName', '$teamNum' , '$matchNum' , '$teamScore', '$defenseRating', '$doesAuto','$autoCargoDelivered', '$autoPanelsAttached','$centerCrossed', '$autoBroke', '$teleCargoDelivered', '$telePanelsAttached', '$malfunction', '$doesDefend', '$teleNotes', '$specialNotes', '$climbLevel', '$helpsOthers')";
+
+$query = "INSERT INTO match_data (  Scout_Name, Team_Number, Match_Number,   Team_Score,   Defense_Rating,   Does_Auto,  Supports_Tub,  Auto_Tubs_Contacted,  Tele_Bed_Cubes,  Does_Give,    Malfunction,    Tele_Notes,   Special_Notes)
+                          VALUES ('$scoutName', '$teamNum' , '$matchNum' , '$teamScore', '$defenseRating', '$doesAuto','$supportsTub', '$autoTubsContacted', '$teleBedCubes', '$doesGive', '$malfunction', '$teleNotes', '$specialNotes')";
 
 		
 		
@@ -97,7 +94,6 @@ $query = "INSERT INTO match_data (  Scout_Name, Team_Number, Match_Number,   Tea
 
 $teamNum = $json['TEAMNUMBER'];
 $teamName = $json['TEAMNAME'];
-$robotName = $json['ROBOTNAME'];
 $numOfWheel = $json['NUMOFWHEELS'];
 $locomotion = $json['LOCOMOTION'];
 $vision = $json['VISION'];
@@ -106,25 +102,23 @@ $driveTrain = $json['DRIVETRAIN'];
 $doesAuto = $json['AUTO'];
 $autoFor = $json['AUTOUSAGE'];
 
-$canCargo = $json['CANCARGO'];
-$canHatch = $json['CANHATCH'];
-$canElevator = $json['CANELEVATOR'];
-$canClimb2 = $json['CANCLIMB2'];
-$canClimb3 = $json['CANCLIMB3'];
+$canTubs = $json['CANTUBS'];
+$canCubes = $json['CANCUBES'];
+$canBunnies = $json['CANBUNNIES'];
+$canDumb = $json['CANDUMP'];
 
-
-$doesAutonomous = $json['DOESAUTONOMOUS'];
-$doesSandstorm = $json['DOESSANDSTORM'];
-$doesRocket = $json['DOESROCKET'];
-$doesShip = $json['DOESSHIP'];
-$doesDefensive = $json['DOESDEFENSIVE'];
-$doesOffensive = $json['DOESOFFENSIVE'];
+$doesAutoContactTubs = $json['DOESAUTOCONTACTTUBS'];
+$doesAutoSupportTubs = $json['DOESAUTOSUPPORTTUBS'];
+$doesAutoSupportBunnies = $json['DOESAUTOSUPPORTBUNNIES'];
+$doesGiveCubes = $json['DOESGIVECUBES'];
+$doesPutBunnies = $json['DOESPUTBUNNIES'];
+$doesRemoveBunnies = $json['DOESREMOVEBUNNIES'];
 
 $generalNotes = $json['GENERALNOTES'];
 
 
-$query = "INSERT INTO pit_data (  Scout_Name, Team_Number,   Team_Name,   Robot_Name, Number_of_Wheels,    Locomotion,    Vision,   Vision_For,   Drive_Train,     Do_Auto,   Auto_For,   Can_Cargo,   Can_Hatch,   Can_Elevator,  Can_Climb_2,  Can_Climb_3,   Does_Autonomous,   Does_Sandstorm,  Does_Rocket,   Does_Ship,   Does_Defensive,   Does_Offensive,   General_Notes) 
-		                VALUES ('$scoutName',  '$teamNum', '$teamName', '$robotName',    '$numOfWheel', '$locomotion', '$vision', '$visionUse', '$driveTrain', '$doesAuto', '$autoFor', '$canCargo', '$canHatch', '$canElevator', '$canClimb2', '$canClimb3', '$doesAutonomous', '$doesSandstorm', '$doesRocket', '$doesShip', '$doesDefensive', '$doesOffensive', '$generalNotes')";
+$query = "INSERT INTO pit_data (  Scout_Name, Team_Number,   Team_Name, Number_of_Wheels,    Locomotion,    Vision,   Vision_For,   Drive_Train,     Do_Auto,   Auto_For,   Can_Tubs,   Can_Cubes,   Can_Bunnies,   Can_Dump, Does_Auto_Contact_Tubs, Does_Auto_Support_Tubs,  Does_Auto_SupportBunnies,  Does_Give_Cubes,  Does_Put_Bunnies,  Does_Remove_Bunnies,   General_Notes) 
+		                VALUES (    '$scoutName',  '$teamNum', '$teamName',    '$numOfWheel', '$locomotion', '$vision', '$visionUse', '$driveTrain', '$doesAuto', '$autoFor', '$canTubs', '$canCubes', '$canBunnies', '$canDump', '$doesAutoContactTubs', '$doesAutoSupportTubs', '$doesAutoSupportBunnies', '$doesGiveCubes', '$doesPutBunnies', '$doesRemoveBunnies', '$generalNotes')";
 
 		
 		
