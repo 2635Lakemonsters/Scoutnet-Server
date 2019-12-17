@@ -30,7 +30,6 @@ if (!$link->real_connect(
     die('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
 }
 
-// Quick test
 //echo 'Success... ' . $link->host_info . "\n";
 
 $connection = $link->real_connect(
@@ -56,16 +55,21 @@ $dataArray = $_POST["DATA"];
 $json = (array) json_decode($dataArray, true);
 $dataType = $json['DATATYPE'];
 $scoutName = $json['SCOUTNAME'];
-echo($dataType);
-if ($dataType == "matchData") {
 
+
+if($dataType) {
+  echo " succ";
+}
+
+if ($dataType == "matchData") {
+echo " Match Data";
 $teamNum = $json['TEAMNUM'];
 $matchNum = $json['MATCHNUM'];
 $teamScore = $json['TEAMSCORE'];
 $defenseRating = $json['DEFENSERATING'];
 
-$SupportsTub = $json['SUPPORTSTUB'];
-$autoBunniesSupported = $json['AUTOBUNNIESSUPORTED'];
+$supportsTub = $json['SUPPORTSTUB'];
+$autoBunniesSupported = $json['AUTOBUNNIESSUPPORTED'];
 $doesAuto = $json['DOESAUTO'];
 $autoTubsContacted = $json['AUTOTUBSCONTACTED'];
 
@@ -89,6 +93,7 @@ $query = "INSERT INTO match_data (  Scout_Name, Team_Number, Match_Number,   Tea
 		
 		
 } elseif ($dataType == "pitData") {
+echo " Pit Data";
 		
 
 
@@ -105,7 +110,7 @@ $autoFor = $json['AUTOUSAGE'];
 $canTubs = $json['CANTUBS'];
 $canCubes = $json['CANCUBES'];
 $canBunnies = $json['CANBUNNIES'];
-$canDumb = $json['CANDUMP'];
+$canDump = $json['CANDUMP'];
 
 $doesAutoContactTubs = $json['DOESAUTOCONTACTTUBS'];
 $doesAutoSupportTubs = $json['DOESAUTOSUPPORTTUBS'];
@@ -117,13 +122,13 @@ $doesRemoveBunnies = $json['DOESREMOVEBUNNIES'];
 $generalNotes = $json['GENERALNOTES'];
 
 
-$query = "INSERT INTO pit_data (  Scout_Name, Team_Number,   Team_Name, Number_of_Wheels,    Locomotion,    Vision,   Vision_For,   Drive_Train,     Do_Auto,   Auto_For,   Can_Tubs,   Can_Cubes,   Can_Bunnies,   Can_Dump, Does_Auto_Contact_Tubs, Does_Auto_Support_Tubs,  Does_Auto_SupportBunnies,  Does_Give_Cubes,  Does_Put_Bunnies,  Does_Remove_Bunnies,   General_Notes) 
+$query = "INSERT INTO pit_data (  Scout_Name, Team_Number,   Team_Name, Number_Of_Wheels,    Locomotion,    Vision,   Vision_For,   Drive_Train,   Does_Auto,   Auto_For,   Can_Tubs,   Can_Cubes,   Can_Bunnies,   Can_Dump, Does_Auto_Contact_Tubs, Does_Auto_Support_Tubs, Does_Auto_Support_Bunnies,  Does_Give_Cubes,  Does_Put_Bunnies,  Does_Remove_Bunnies,   General_Notes) 
 		                VALUES (    '$scoutName',  '$teamNum', '$teamName',    '$numOfWheel', '$locomotion', '$vision', '$visionUse', '$driveTrain', '$doesAuto', '$autoFor', '$canTubs', '$canCubes', '$canBunnies', '$canDump', '$doesAutoContactTubs', '$doesAutoSupportTubs', '$doesAutoSupportBunnies', '$doesGiveCubes', '$doesPutBunnies', '$doesRemoveBunnies', '$generalNotes')";
 
 		
 		
 } else {
-	echo "faulty data structure - datatype";
+	echo " faulty data structure - datatype";
 }
 
 // $result = mysqli_query($connection, $query);
