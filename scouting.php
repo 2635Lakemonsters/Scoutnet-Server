@@ -5,7 +5,7 @@
 <?php
 $user = 'root';
 $pass = 'Unicorns2635';
-$db   = 'bunnybots_data_2019';
+$db   = 'wilsonville_data_2020';
 $host = 'localhost';
 $port = 3306;
 $link = mysqli_init();
@@ -68,24 +68,26 @@ $matchNum = $json['MATCHNUM'];
 $teamScore = $json['TEAMSCORE'];
 $defenseRating = $json['DEFENSERATING'];
 
-$supportsTub = $json['SUPPORTSTUB'];
-$autoBunniesSupported = $json['AUTOBUNNIESSUPPORTED'];
+$crossesLine = $json['CROSSESLINE'];
+$collectsCells = $json['COLLECTSCELLS'];
 $doesAuto = $json['DOESAUTO'];
-$autoTubsContacted = $json['AUTOTUBSCONTACTED'];
+$shootsCells = $json['SHOOTSCELLS'];
+$autoUpperCells = $json['AUTOUPPERCELLS'];
+$autoLowerCells = $json['AUTOLOWERCELLS'];
 
-$teleBedCubes = $json['TELEBEDCUBES'];
-$doesGive = $json['DOESGIVE'];
+$teleUpperCells = $json['TELEUPPERCELLS'];
+$teleLowerCells = $json['TELELOWERCELLS'];
 $malfunction = $json['MALFUNCTION'];
+$usesPanel = $json['USESPANEL'];
+
 $teleNotes = $json['TELENOTES'];
 
 $specialNotes = $json['SPECIALNOTES'];
+$endgame = $json['ENDGAME'];
+$isLevel = $json['ISLEVEL'];
 
-
-
-
-
-$query = "INSERT INTO match_data (  Scout_Name, Team_Number, Match_Number,   Team_Score,   Defense_Rating,   Does_Auto,  Supports_Tub,  Auto_Tubs_Contacted,  Tele_Bed_Cubes,  Does_Give,    Malfunction,    Tele_Notes,   Special_Notes)
-                          VALUES ('$scoutName', '$teamNum' , '$matchNum' , '$teamScore', '$defenseRating', '$doesAuto','$supportsTub', '$autoTubsContacted', '$teleBedCubes', '$doesGive', '$malfunction', '$teleNotes', '$specialNotes')";
+$query = "INSERT INTO match_data (  Scout_Name, Team_Number, Match_Number,   Team_Score,   Defense_Rating,   Does_Auto,  Crosses_Line,  Collects_Cells,   Shoots_Cells,  Auto_Upper_Cells,  Auto_Lower_Cells,  Tele_Upper_Cells,  Tele_Lower_cells,    Malfunction,   Uses_Panel,   Tele_Notes,   Special_Notes,    Endgame,   Is_Level)
+                          VALUES ('$scoutName', '$teamNum' , '$matchNum' , '$teamScore', '$defenseRating', '$doesAuto','$crossesLine', '$collectCells', '$shootsCells', '$autoUpperCells', '$autoLowerCells', '$teleUpperCells', '$teleLowerCells', '$malfunction', '$usesPanel', '$teleNotes', '$specialNotes', '$endgame', '$isLevel')";
 
 		
 		
@@ -107,23 +109,23 @@ $driveTrain = $json['DRIVETRAIN'];
 $doesAuto = $json['AUTO'];
 $autoFor = $json['AUTOUSAGE'];
 
-$canTubs = $json['CANTUBS'];
-$canCubes = $json['CANCUBES'];
-$canBunnies = $json['CANBUNNIES'];
-$canDump = $json['CANDUMP'];
+$canShootHigh = $json['CANSHOOTHIGH'];
+$canShootLow = $json['CANSHOOTLOW'];
+$canControlPanel = $json['CANCONTROLPANEL'];
+$canCollectGround = $json['CANCOLLECTGROUND'];
+$canCollectLoading = $json['CANCOLLECTLOADING'];
+$canClimb = $json['CANCLIMB']
 
-$doesAutoContactTubs = $json['DOESAUTOCONTACTTUBS'];
-$doesAutoSupportTubs = $json['DOESAUTOSUPPORTTUBS'];
-$doesAutoSupportBunnies = $json['DOESAUTOSUPPORTBUNNIES'];
-$doesGiveCubes = $json['DOESGIVECUBES'];
-$doesPutBunnies = $json['DOESPUTBUNNIES'];
-$doesRemoveBunnies = $json['DOESREMOVEBUNNIES'];
+$doesAutomaticAim = $json['DOESAUTOMATICAIM'];
+$doesAutoShoot = $json['DOESAUTOSHOOT'];
+$doesAutoPickup = $json['DOESAUTOPICKUP'];
+$doesShootFromOpposite = $json['DOESSHOOTFROMOPPOSITE'];
 
 $generalNotes = $json['GENERALNOTES'];
 
 
-$query = "INSERT INTO pit_data (  Scout_Name, Team_Number,   Team_Name, Number_Of_Wheels,    Locomotion,    Vision,   Vision_For,   Drive_Train,   Does_Auto,   Auto_For,   Can_Tubs,   Can_Cubes,   Can_Bunnies,   Can_Dump, Does_Auto_Contact_Tubs, Does_Auto_Support_Tubs, Does_Auto_Support_Bunnies,  Does_Give_Cubes,  Does_Put_Bunnies,  Does_Remove_Bunnies,   General_Notes) 
-		                VALUES (    '$scoutName',  '$teamNum', '$teamName',    '$numOfWheel', '$locomotion', '$vision', '$visionUse', '$driveTrain', '$doesAuto', '$autoFor', '$canTubs', '$canCubes', '$canBunnies', '$canDump', '$doesAutoContactTubs', '$doesAutoSupportTubs', '$doesAutoSupportBunnies', '$doesGiveCubes', '$doesPutBunnies', '$doesRemoveBunnies', '$generalNotes')";
+$query = "INSERT INTO pit_data (  Scout_Name, Team_Number,   Team_Name, Number_Of_Wheels,    Locomotion,    Vision,   Vision_For,   Drive_Train,   Does_Auto,   Auto_For,   Can_Shoot_High,  Can_Shoot_Low,  Can_Control_Panel,  Can_Collect_Ground,  Can_Collect_Loading,  Can_Climb,   Does_Automatic_Aim,  Does_Auto_Shoot, Does_Shoot_From_Opposite,   General_Notes) 
+		                VALUES (    '$scoutName',  '$teamNum', '$teamName',    '$numOfWheel', '$locomotion', '$vision', '$visionUse', '$driveTrain', '$doesAuto', '$autoFor', ' $canShootHigh', '$canShootLow', '$canControlPanel', '$canCollectGround',' $canCollectLoading', '$canClimb', '$doesAutomaticAim', '$doesAutoShoot', '$doesShootFromOpposite', '$generalNotes')";
 
 		
 		
